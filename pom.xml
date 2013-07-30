@@ -11,7 +11,7 @@
         <build.number>SNAPSHOT</build.number>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <easyb.version>1.5</easyb.version>
-        <cobertura.version>2.5.1</cobertura.version>
+        <cobertura.version>2.2</cobertura.version>
         <!-- A workaround for a bug in PMD -->
         <targetJdk>1.6</targetJdk>
         <github.account>wakaleo</github.account>
@@ -75,18 +75,6 @@
                 </executions>
             </plugin>
             <!-- CODE COVERAGE -->
-	
-	    <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>2.5.1</version>
-            <configuration>
-                <formats>
-                    <format>html</format>
-                    <format>xml</format>
-                </formats>
-            </configuration>
-        </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -197,11 +185,6 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-	<dependency>
-	<groupId>net.sourceforge.cobertura</groupId>
-	<artifactId>cobertura</artifactId>
-	<version>2.0.2</version>
-	</dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit-dep</artifactId>
@@ -333,7 +316,15 @@
                                     <artifactId>maven-project-info-reports-plugin</artifactId>
                                     <version>2.2</version>
                                 </plugin>
-                          
+                                <plugin>
+                                    <groupId>org.codehaus.mojo</groupId>
+                                    <artifactId>cobertura-maven-plugin</artifactId>
+                                    <version>${cobertura.version}</version>
+                                    <configuration>
+                                        <formats>
+                                            <format>html</format>
+                                            <format>xml</format>
+                                        </formats>
                                     </configuration>
                                 </plugin>
                                 <plugin>
@@ -395,7 +386,7 @@
                                     <version>2.1</version>
                                 </plugin>
                             </reportPlugins>
-                        
+                        </configuration>
                         <dependencies>
                             <dependency>
                                 <groupId>com.wakaleo.gameoflife</groupId>
@@ -447,6 +438,11 @@
             </build>
             <reporting>
                 <plugins>
+                    <plugin>
+                        <groupId>net.sourceforge.cobertura</groupId>
+                        <artifactId>cobertura</artifactId>
+                        <version>2.0.2</version>
+                    </plugin>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>cobertura-maven-plugin</artifactId>
