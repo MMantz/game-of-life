@@ -395,7 +395,7 @@
                                     <version>2.1</version>
                                 </plugin>
                             </reportPlugins>
-                        </configuration>
+                        
                         <dependencies>
                             <dependency>
                                 <groupId>com.wakaleo.gameoflife</groupId>
